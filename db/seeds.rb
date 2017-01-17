@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+List.create(name: 'Milk', quantity: 3)
+List.create(name: 'Butter', quantity: 5)
+
+puts "Seeding is complete"

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'list#index'
+  get 'list', to: 'list#index', as:'new_item'
 
+  get 'list', to: 'list#index', as:'lists'
+  post 'list', to: 'list#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
