@@ -3,6 +3,16 @@ Rails.application.routes.draw do
 
   get 'list', to: 'list#index', as:'lists'
   post 'list', to: 'list#create'
+
+  ### edit ###
+  get 'list/:id', to: 'list#index', as: 'item'
+  get 'list/:id/edit', to: 'list#index', as: 'edit_item'
+  patch 'list/:id', to: 'list#update'
+
+  ### Delete ###
+  delete 'list/', to: 'list#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

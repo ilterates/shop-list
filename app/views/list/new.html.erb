@@ -11,3 +11,16 @@
     <%= f.submit %>
   </div>
 <% end %> -->
+<%= form_for(@edit_item)do |f| %>
+  <div class="form">
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="">
+    <%= f.label :quantity %> <br>
+    <%= f.range_field :quantity, in: 1..10 %> <br>
+  </div>
+  <div class="">
+    <%= f.submit %>
+  </div>
+<% end %>
