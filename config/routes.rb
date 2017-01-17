@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   patch 'list/:id', to: 'list#update'
 
   ### Delete ###
-  delete 'list/', to: 'list#destroy'
+  delete 'list/:id', to: 'list#destroy', as:'kill'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

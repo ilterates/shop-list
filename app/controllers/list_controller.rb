@@ -2,9 +2,6 @@ class ListController < ApplicationController
   def index
     @list = List.all
     @new_list = List.new
-    item_id = params[:id]
-    @edit_item = List.find_by_id(item_id)
-    puts "This is edit item", @edit_item
   end
   def new
     @list = List.new
@@ -21,6 +18,8 @@ class ListController < ApplicationController
   def edit
     # item_id = params[:id]
     # @item = List.find_by_id(item_id)
+    item_id = params[:id]
+    @edit_item = List.find_by_id(item_id)
   end
   def update
     item_id = params[:id]
@@ -33,13 +32,12 @@ class ListController < ApplicationController
     redirect_to lists_path
   end
   def destroy
-    item_id = params[:id]
-    @delete_item = List.find_by_id(item_id)
-    if @delete_item.present?
-      @delete_item.destroy
-      puts "EXISTS"
+    @kill_id = List.find_by_id(params[:id])
+    if @kill_id.present?
+      @kill_id.destroy
+      puts "EXISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     else
-      puts "DOES NOT"
+      puts "DOES NOT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     end
     redirect_to "/list"
   end
