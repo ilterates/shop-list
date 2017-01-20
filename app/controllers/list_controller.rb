@@ -2,7 +2,7 @@ class ListController < ApplicationController
   def index
     @list = List.all
     @new_list = List.new
-  end
+    end
   def new
     @list = List.new
   end
@@ -11,8 +11,6 @@ class ListController < ApplicationController
     list = List.new(list_params)
     if list.save
       redirect_to lists_path
-    else
-      render :new
     end
   end
   def edit
@@ -33,12 +31,13 @@ class ListController < ApplicationController
   end
   def destroy
     @kill_id = List.find_by_id(params[:id])
-    if @kill_id.present?
-      @kill_id.destroy
+    puts @kill_id
+    if @kill_id.exists?
+        puts @kill_id, "----------------------"
       puts "EXISTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      redirect_to "/list"
     else
       puts "DOES NOT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     end
-    redirect_to "/list"
   end
 end
